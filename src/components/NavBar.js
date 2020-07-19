@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color: "black"
   },
 }));
 
@@ -25,7 +26,7 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar style={{ backgroundColor: "transparent", boxShadow: "none" }} position="static">
         <Toolbar>
           <Hidden mdUp>
           <IconButton display={{ xs: 'none', sm: 'block', md: 'none' }} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -37,9 +38,9 @@ export default function ButtonAppBar() {
           </Typography>
           <Hidden smDown>
               <div className='buttonsAppbar'>
-                <Button color="inherit">Customers</Button>
-                <Button color="inherit">Products</Button>
-                <Button color="inherit">Consent Types</Button>
+                <Button color="black"><a className='navOptions' style={{ textDecoration: 'none', color: 'inherit' }} href="#">Customers</a></Button>
+                <Button color="black"><a className='navOptions' style={{ textDecoration: 'none', color: 'inherit' }} href="#">Products</a></Button>
+                <Button color="black"><a className='navOptions' style={{ textDecoration: 'none', color: 'inherit' }} href="#">Consent Types</a></Button>
               </div>
           </Hidden>
           
