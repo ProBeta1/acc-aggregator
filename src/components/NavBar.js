@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Hidden from '@material-ui/core/Hidden';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,15 +27,22 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+          <Hidden mdUp>
+          <IconButton display={{ xs: 'none', sm: 'block', md: 'none' }} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon  />
           </IconButton>
+          </Hidden>
           <Typography variant="h7" className={classes.title}>
             XYZ Bank
           </Typography>
-          <Button color="inherit">Customers</Button>
-          <Button color="inherit">Products</Button>
-          <Button color="inherit">Consent Types</Button>
+          <Hidden smDown>
+              <div className='buttonsAppbar'>
+                <Button color="inherit">Customers</Button>
+                <Button color="inherit">Products</Button>
+                <Button color="inherit">Consent Types</Button>
+              </div>
+          </Hidden>
+          
 
         </Toolbar>
       </AppBar>
